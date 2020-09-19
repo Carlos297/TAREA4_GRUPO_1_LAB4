@@ -1,6 +1,8 @@
 package Dominio;
 
 import java.awt.BorderLayout;
+
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -18,6 +20,7 @@ public class Principal extends JFrame
 	private JMenu JMMenuPelicula;
 	private JMenuItem JMIPeliculaAgregar;
 	private JMenuItem JMIPeliculaListar;
+	private DefaultListModel<Pelicula> listModel;
 
 	/**
 	 * Create the frame.
@@ -40,6 +43,7 @@ public class Principal extends JFrame
 			{
 				JPPanelPrincipal.removeAll();
 				PanelAgregar pAgregar= new PanelAgregar();
+				pAgregar.setDefaultListModel(listModel);
 				JPPanelPrincipal.add(pAgregar);
 				JPPanelPrincipal.repaint();
 				JPPanelPrincipal.revalidate();

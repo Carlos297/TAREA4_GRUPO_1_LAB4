@@ -3,9 +3,12 @@ package Dominio;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class PanelAgregar extends JPanel 
 {
@@ -18,6 +21,7 @@ public class PanelAgregar extends JPanel
 	JComboBox<Categoria> cbGenero = new JComboBox<Categoria>();
 	JTextField txtNombre = new JTextField();
 	JButton btnAceptar = new JButton("ACEPTAR");
+	private DefaultListModel<Pelicula> listModel;
 	
 	public PanelAgregar()
 	{
@@ -32,6 +36,21 @@ public class PanelAgregar extends JPanel
 		
 		lblNewLabel_2.setBounds(38, 78, 128, 14);
 		add(lblNewLabel_2);
+		btnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				if(!txtNombre.getText().isEmpty() && cbGenero.getSelectedItem().toString() != "Seleccione un género") {
+					Pelicula pel = new Pelicula();
+					pel.setNombrePelicula(txtNombre.getText());
+					pel.setCategoria(cbGenero.getSelectedItem().toString());
+				} else {
+					
+					JOptionPane.showMessageDialog(null, "Error al agregar la pelicula.");
+					
+				}
+				
+			}
+		});
 		
 		btnAceptar.setBounds(150, 117, 89, 23);
 		add(btnAceptar);
@@ -54,6 +73,14 @@ public class PanelAgregar extends JPanel
 		txtNombre.setColumns(10);
 		
 	}
+
+	public void setDefaultListModel(DefaultListModel<Pelicula> listModelPrincipal) {
+		
+		this.listModel = listModelPrincipal;
+		
+	}
+	
+	
 	
 	
 }
