@@ -43,9 +43,11 @@ public class PanelAgregar extends JPanel
 					Pelicula pel = new Pelicula();
 					pel.setNombrePelicula(txtNombre.getText());
 					pel.setCategoria(cbGenero.getSelectedItem().toString());
+					listModel.addElement(pel);
+														
 				} else {
 					
-					JOptionPane.showMessageDialog(null, "Error al agregar la pelicula.");
+					JOptionPane.showMessageDialog(null, "Error al agregar la pelicula");
 					
 				}
 				
