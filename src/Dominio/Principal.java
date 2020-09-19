@@ -7,12 +7,11 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class VentanaPrincipal extends JFrame {
-
-	/**
-	 * 
-	 */
+public class Principal extends JFrame
+{
 	private static final long serialVersionUID = 1L;
 	private JPanel JPPanelPrincipal;
 	private JMenuBar JMBMenu;
@@ -23,7 +22,7 @@ public class VentanaPrincipal extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VentanaPrincipal() {
+	public Principal() {
 		setTitle("Programa");
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -36,6 +35,16 @@ public class VentanaPrincipal extends JFrame {
 		JMBMenu.add(JMMenuPelicula);
 		
 		JMIPeliculaAgregar = new JMenuItem("Agregar");
+		JMIPeliculaAgregar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				JPPanelPrincipal.removeAll();
+				PanelAgregar pAgregar= new PanelAgregar();
+				JPPanelPrincipal.add(pAgregar);
+				JPPanelPrincipal.repaint();
+				JPPanelPrincipal.revalidate();
+			}
+		});
 		JMMenuPelicula.add(JMIPeliculaAgregar);
 		
 		JMIPeliculaListar = new JMenuItem("Listar");
