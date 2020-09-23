@@ -52,6 +52,15 @@ public class Principal extends JFrame
 		JMMenuPelicula.add(JMIPeliculaAgregar);
 		
 		JMIPeliculaListar = new JMenuItem("Listar");
+		JMIPeliculaListar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				PanelListar pListar = new PanelListar();
+				pListar.setDefaultListModel(listModel);
+				JPPanelPrincipal.add(pListar);
+				JPPanelPrincipal.repaint();
+				JPPanelPrincipal.revalidate();
+			}
+		});
 		JMMenuPelicula.add(JMIPeliculaListar);
 		
 		JPPanelPrincipal = new JPanel();
