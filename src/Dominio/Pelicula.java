@@ -4,7 +4,7 @@ public class Pelicula
 {
 	private static int idPelicula =1;
 	private String nombrePelicula;
-	private String categoria;
+	public Categoria categoria;
 	
 	public static int getIdPelicula() 
 	{
@@ -22,14 +22,6 @@ public class Pelicula
 	{
 		this.nombrePelicula = nombrePelicula;
 	}
-	public String getCategoria() 
-	{
-		return categoria;
-	}
-	public void setCategoria(String categoria) 
-	{
-		this.categoria = categoria;
-	}
 	
 	@Override
 	public String toString() {
@@ -41,7 +33,7 @@ public class Pelicula
 		idPelicula++;
 	}
 	
-	public Pelicula(String nombre, String cate) 
+	public Pelicula(String nombre, Categoria cate) 
 	{
 		idPelicula++;
 		this.nombrePelicula= nombre;

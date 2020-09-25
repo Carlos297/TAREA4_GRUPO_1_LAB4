@@ -53,7 +53,8 @@ public class PanelAgregar extends JPanel
 				if(!txtNombre.getText().isEmpty() && cbGenero.getSelectedItem().toString() != "Seleccione un género") {
 					Pelicula pel = new Pelicula();
 					pel.setNombrePelicula(txtNombre.getText());
-					pel.setCategoria(cbGenero.getSelectedItem().toString());
+					pel.categoria = new Categoria();
+					pel.categoria.setCategoria(cbGenero.getSelectedItem().toString());
 
 					listModel.addElement(pel);
 					JOptionPane.showMessageDialog(null, "Pelicula Guardada");
