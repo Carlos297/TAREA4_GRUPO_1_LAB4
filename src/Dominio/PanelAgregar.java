@@ -16,9 +16,9 @@ public class PanelAgregar extends JPanel
 {
 	private static final long serialVersionUID = 1L;
 	
-	JLabel lblNewLabel = new JLabel("ID");
-	JLabel lblNewLabel_1 = new JLabel("NOMBRE");
-	JLabel lblNewLabel_2 = new JLabel("GENERO");
+	JLabel lblLabelID = new JLabel("ID");
+	JLabel lblNombre = new JLabel("NOMBRE");
+	JLabel lblGenero = new JLabel("GENERO");
 	JLabel lblID = new JLabel("id_autonumerico");
 	JComboBox<Categoria> cbGenero = new JComboBox<Categoria>();
 	JTextField txtNombre = new JTextField();
@@ -30,11 +30,11 @@ public class PanelAgregar extends JPanel
 		setLayout(null);
 
 		
-		lblNewLabel.setBounds(38, 28, 46, 14);
-		add(lblNewLabel);
+		lblLabelID.setBounds(38, 28, 46, 14);
+		add(lblLabelID);
 		
-		lblNewLabel_1.setBounds(38, 53, 128, 14);
-		add(lblNewLabel_1);
+		lblNombre.setBounds(38, 53, 128, 14);
+		add(lblNombre);
 		
 		cbGenero.setBounds(176, 75, 176, 20);
 		cbGenero.addItem(new Categoria("Seleccione un género"));
@@ -45,8 +45,8 @@ public class PanelAgregar extends JPanel
 		cbGenero.addItem(new Categoria("Thriller"));
 		add(cbGenero);
 		listModel = new DefaultListModel<Pelicula>();
-		lblNewLabel_2.setBounds(38, 78, 128, 14);
-		add(lblNewLabel_2);
+		lblGenero.setBounds(38, 78, 128, 14);
+		add(lblGenero);
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -54,9 +54,17 @@ public class PanelAgregar extends JPanel
 					Pelicula pel = new Pelicula();
 					pel.setNombrePelicula(txtNombre.getText());
 					pel.setCategoria(cbGenero.getSelectedItem().toString());
-					
+
 					listModel.addElement(pel);
 					JOptionPane.showMessageDialog(null, "Pelicula Guardada");
+					
+					
+					lblID.setText(""+ Pelicula.getIdPelicula());
+					add(lblID);
+					txtNombre.setText("");
+					add(txtNombre);
+					
+
 														
 				} else {
 					

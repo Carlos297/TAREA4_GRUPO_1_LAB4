@@ -30,7 +30,7 @@ public class PanelListar extends JPanel {
 		add(lblPeliculas);
 		
 		list = new JList<Pelicula>();
-		list.setBounds(83, 11, 281, 198);
+		list.setBounds(83, 11, 331, 198);
 		add(list);
 		//listModel = new DefaultListModel<Pelicula>();
 	}
