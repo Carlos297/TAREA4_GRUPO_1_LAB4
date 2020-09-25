@@ -7,6 +7,8 @@ import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
+
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -34,6 +36,15 @@ public class PanelAgregar extends JPanel
 		lblNewLabel_1.setBounds(38, 53, 128, 14);
 		add(lblNewLabel_1);
 		
+		cbGenero.setBounds(176, 75, 176, 20);
+		cbGenero.addItem(new Categoria("Seleccione un género"));
+		cbGenero.addItem(new Categoria("Terror"));
+		cbGenero.addItem(new Categoria("Accion"));
+		cbGenero.addItem(new Categoria("Suspenso"));
+		cbGenero.addItem(new Categoria("Romantica"));
+		cbGenero.addItem(new Categoria("Thriller"));
+		add(cbGenero);
+		listModel = new DefaultListModel<Pelicula>();
 		lblNewLabel_2.setBounds(38, 78, 128, 14);
 		add(lblNewLabel_2);
 		btnAceptar.addActionListener(new ActionListener() {
@@ -43,7 +54,9 @@ public class PanelAgregar extends JPanel
 					Pelicula pel = new Pelicula();
 					pel.setNombrePelicula(txtNombre.getText());
 					pel.setCategoria(cbGenero.getSelectedItem().toString());
+					
 					listModel.addElement(pel);
+					JOptionPane.showMessageDialog(null, "Pelicula Guardada");
 														
 				} else {
 					
@@ -57,14 +70,7 @@ public class PanelAgregar extends JPanel
 		btnAceptar.setBounds(150, 117, 89, 23);
 		add(btnAceptar);
 		
-		cbGenero.setBounds(176, 75, 176, 20);
-		cbGenero.addItem(new Categoria("Seleccione un género"));
-		cbGenero.addItem(new Categoria("Terror"));
-		cbGenero.addItem(new Categoria("Accion"));
-		cbGenero.addItem(new Categoria("Suspenso"));
-		cbGenero.addItem(new Categoria("Romantica"));
-		cbGenero.addItem(new Categoria("Thriller"));
-		add(cbGenero);
+
 		
 		lblID.setBounds(176, 28, 111, 14);
 		lblID.setText(""+ Pelicula.getIdPelicula());

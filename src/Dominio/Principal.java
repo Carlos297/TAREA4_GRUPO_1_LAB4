@@ -36,6 +36,7 @@ public class Principal extends JFrame
 		
 		JMMenuPelicula = new JMenu("Peliculas");
 		JMBMenu.add(JMMenuPelicula);
+		listModel = new DefaultListModel<Pelicula>();
 		
 		JMIPeliculaAgregar = new JMenuItem("Agregar");
 		JMIPeliculaAgregar.addActionListener(new ActionListener() {
@@ -54,6 +55,8 @@ public class Principal extends JFrame
 		JMIPeliculaListar = new JMenuItem("Listar");
 		JMIPeliculaListar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				JPPanelPrincipal.removeAll();
 				PanelListar pListar = new PanelListar();
 				pListar.setDefaultListModel(listModel);
 				JPPanelPrincipal.add(pListar);

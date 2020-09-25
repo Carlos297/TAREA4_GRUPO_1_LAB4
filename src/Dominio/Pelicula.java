@@ -33,7 +33,7 @@ public class Pelicula
 	
 	@Override
 	public String toString() {
-		return "Pelicula [id: "+idPelicula+ ", nombrePelicula=" + nombrePelicula + ", categoria=" + categoria + "]";
+		return "NombrePelicula= " + nombrePelicula + " , Categoria= " + categoria;
 	}
 	
 	public Pelicula ()
